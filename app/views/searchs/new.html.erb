@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <h1>投稿ページ</h1>
+      <%= form_for(@place, :url=> {controller:'searchs',action:'create'})do |f| %>
+       <div class="field">
+        <%= f.label :名前 %>
+        <br>
+        <%= f.text_field :name,size: 100 %>
+        <br>
+        <%= f.label :エリア %>
+        <br>
+        <%= f.text_field :area_id,size: 10%>
+        <br>
+        <%= f.label :ジャンル %>
+        <br>
+        <%= f.text_field :genre_id,size: 10 %>
+        <br>
+        <%= f.label :概要 %>
+        <br>
+        <%= f.text_field :overview,size: 100 %>
+        <br>
+        <%= f.label :アクセス %>
+        <br>
+        <%= f.text_field :access,size: 100 %>
+        <br>
+        <%= f.label :定休日 %>
+        <br>
+        <%= f.text_field :holiday,size: 100 %>
+        <br>
+        <%= f.label :電話番号 %>
+        <br>
+        <%= f.text_field :tel,size: 100 %>
+        <br>
+        <%= f.label :予算 %>
+        <br>
+        <%= f.text_field :price,size: 100 %>
+        <br>
+        <%= f.label :image %>
+        <br>
+        <%= f.file_field :image %>
+        <br>
+      </div>
+       <div class="action">
+        <%= f.submit %>
+       </div>
+      <% end %>
+      <%= link_to 'トップへ',searchs_path %>
+
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

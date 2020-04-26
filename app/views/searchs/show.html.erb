@@ -1,0 +1,201 @@
+<header>
+  <h1>ChillPlace</h1>
+  <div class="navigation">
+  <!-- <ul>
+  	<li><a href="#main-info">基本情報</a></li>
+    <li><a href="#average">平均評価</a></li>
+  	<li><a href="#all-review">レビュー一覧</a></li>
+  	<li><a href="#do-review">レビューする</a></li>
+  </ul> -->
+    <nav><a href="#main-info">基本情報</a></nav>
+    <nav><a href="#average">平均評価</a></nav>
+    <nav><a href="#all-review">レビュー一覧</a></nav>
+    <nav><a href="#do-review">レビューする</a></nav>
+
+</div>
+<header>
+<div class="center">
+<div class="show-background">
+
+<div class="place-main">
+<h2><%= @place.name%></h2>
+<div class="show-image">
+<%= image_tag @place.image_url %>
+</div>
+<br>
+<div id="main-info">
+<h3>基本情報</h3>
+<span class="under">概要</span>
+<br>
+<%= @place.overview%>
+<br>
+<span class="under">アクセス</span>
+<br>
+<%= @place.access %>
+<br>
+<span class="under">予算</span>
+<br>
+<%= @place.price %>
+<br>
+<span class="under">定休日</span>
+<br>
+<%= @place.holiday %>
+<br>
+<span class="under">電話番号</span>
+<br>
+<%= @place.tel %>
+<br>
+</div>
+<div id="average">
+<h3>平均評価</h3>
+<h5>チルさ</h5>
+<span class="post-rate1" score="<%= @chill %>"></span>
+<br>
+<h5>コスパ</h5>
+<span class="post-rate2" score="<%= @costper %>"></span>
+<br>
+<h5>雰囲気</h5>
+<span class="post-rate3" score="<%= @beautiful %>"></span>
+<br>
+</div>
+<div id="all-review">
+<h3>レビュー一覧</h3>
+<% @comments.each do |c| %>
+   <a href="/users/<%= c.user.id %>"><%= c.user.email %></a>
+   <br>
+   <h5>チルさ</h5>
+   <td><div class="five-stars1" score="<%=  c.chill %>"></div></td>
+   <br>
+   <h5>コスパ</h5>
+   <td><div class="five-stars2" score="<%=  c.costper %>"></div></td>
+   <br>
+   <h5>雰囲気</h5>
+   <td><div class="five-stars3" score="<%=  c.beautiful %>"></div></td>
+   <h5>コメント</h5>
+   <%= c.body%>
+   <br>
+<% end %>
+</div>
+
+<div id="do-review">
+  <h3>レビューする</h3>
+<%= form_for @comment,url:search_comments_path(@place) do |f| %>
+<br>
+<div class="field">
+  <%= f.label :チルさ %>
+  <div id='five-stars1'></div>
+  <%= f.hidden_field :chill, id: "post-rate1" %>
+<br>
+  <%= f.label :コスパ %>
+  <div id='five-stars2'></div>
+  <%= f.hidden_field :costper, id: "post-rate2" %>
+<br>
+  <%= f.label :雰囲気 %>
+  <div id='five-stars3'></div>
+  <%= f.hidden_field :beautiful, id: "post-rate3" %>
+<br>
+<%= f.label :コメント%>
+<%= f.text_field :body, :size => 80  %>
+<br>
+<%= f.submit '口コミを投稿する' %>
+<% end %>
+</div>
+</div>
+
+<br>
+<h4><%= link_to 'トップへ',searchs_path %></h4>
+<br>
+<h4><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+</h4>
+</div>
+
+<script>
+  $('#five-stars1').raty({
+    path: "/",
+    click: function(score, e) {
+      $("#post-rate1").val(score)
+    }
+  });
+</script>
+<script>
+  $('#five-stars2').raty({
+    path: "/",
+    click: function(score, e) {
+      $("#post-rate2").val(score)
+    }
+  });
+</script>
+
+<script>
+  $('#five-stars3').raty({
+    path: "/",
+    click: function(score, e) {
+      $("#post-rate3").val(score)
+    }
+  });
+</script>
+<script>
+$(this).on('turbolinks:load',()=>{
+  const stars = $(".post-rate1")
+  stars.raty({
+    path: "/",
+    readOnly: true,
+    score: stars.attr("score")  })
+})
+</script>
+<script>
+$(this).on('turbolinks:load',()=>{
+  const stars = $(".post-rate2")
+  stars.raty({
+    path: "/",
+    readOnly: true,
+    score: stars.attr("score")  })
+})
+</script>
+<script>
+$(this).on('turbolinks:load',()=>{
+  const stars = $(".post-rate3")
+  stars.raty({
+    path: "/",
+    readOnly: true,
+    score: stars.attr("score")
+})
+})
+</script>
+<script>
+  $(this).on('turbolinks:load',()=>{
+    $(".five-stars1").each((_,e)=>{
+      const elem = $(e)
+      elem.raty({
+        path: "/",
+        readOnly: true,
+        score: elem.attr("score")
+      })
+  })
+  })
+</script>
+<script>
+  $(this).on('turbolinks:load',()=>{
+    $(".five-stars2").each((_,e)=>{
+      const elem = $(e)
+      elem.raty({
+        path: "/",
+        readOnly: true,
+        score: elem.attr("score")
+      })
+  })
+  })
+</script>
+<script>
+  $(this).on('turbolinks:load',()=>{
+    $(".five-stars3").each((_,e)=>{
+      const elem = $(e)
+      elem.raty({
+        path: "/",
+        readOnly: true,
+        score: elem.attr("score")
+      })
+  })
+  })
+</script>
+</div>

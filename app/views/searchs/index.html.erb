@@ -1,0 +1,38 @@
+<!-- <h1>ChillPlace</h1> -->
+<header>
+  <h1>ChillPlace</h1>
+  <div class="search-form">
+   <%= form_tag({controller:"searchs",action:"index"}, method: :get) do %>
+   <%= text_field_tag :search,' ', placeholder: "検索する" %>
+    <br>
+   <%= form_tag({controller:"searchs",action:"index"}, method: :get) do %>
+     <%= select_tag"name",options_for_select([["渋谷周辺","渋谷周辺エリア"],["新宿周辺","新宿周辺エリア"]]) %>
+     <% end %>
+   <%= @area_searched %>
+   <%= submit_tag '検索する'  %>
+   <% end %>
+  </div>
+</header>
+<div class="index-body">
+<div class ="place-index">
+<% @places.each do |t| %>
+<div class ="place-info">
+<h5><%= t.name %></h5>
+<br>
+<div class ="image">
+<%= image_tag t.image_url %>
+</div>
+<br>
+<div class ="place-details">
+<p><%= t.access%></p>
+<p><%= t.price%></p>
+<P><%= link_to '詳細へ',search_path(t.id) %></p>
+</div>
+</div>
+
+<br>
+<% end %>
+</div>
+<h4><%= link_to "投稿する",new_search_path %></h4>
+<br>
+</div>

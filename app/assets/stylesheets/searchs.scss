@@ -1,0 +1,188 @@
+// Place all the styles related to the searchs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  height: 120px;
+  // position: fixed;
+  background-color: #000;
+  width: 100%;
+}
+
+header h1 {
+  color:white;
+  padding-top:20px;
+  font-size:60px;
+}
+.index-body{
+  background-image: url("../assets/background.jpg");
+  background-size: cover;
+}
+.center{
+  text-align: center;
+}
+
+.show-background{
+  background-image: url("../assets/background.jpg");
+  background-size: cover;
+
+}
+.search-form{
+  position:relative;
+  left:1050px;
+  bottom:80px;
+  width:300px;
+}
+#main-info {
+    padding: 0.5em 1em;
+    margin: 50px 300px;
+    border: dashed 2px #5b8bd0;/*点線*/
+}
+#main-info p {
+    margin: 0;
+    padding: 0;
+}
+#average {
+    padding: 0.5em 1em;
+    margin: 50px 300px;
+    border: dashed 2px #5b8bd0;/*点線*/
+}
+#average p {
+    margin: 0;
+    padding: 0;
+}
+#all-review {
+    padding: 0.5em 1em;
+    margin: 50px 300px;
+    border: dashed 2px #5b8bd0;/*点線*/
+}
+#all-review p {
+    margin: 0;
+    padding: 0;
+}
+#do-review {
+    padding: 0.5em 1em;
+    margin: 50px 300px;
+    border: dashed 2px #5b8bd0;/*点線*/
+}
+#do-review p {
+    margin: 0;
+    padding: 0;
+}
+.place-index{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin:10px;
+}
+// .navigation{
+//   position: relative;
+//   left:500px;
+//   // top: 200px;
+//   font-size:20px;
+//
+// }
+// .pla ce-details{
+//   text-align: center;
+// }
+ul { list-style:none;}
+
+.place-info{
+    padding: 0em em;
+    margin: 30px 20px;
+    font-weight: bold;
+    color: black;
+    background: #FFF;
+    border: solid 3px black ;
+    border-radius: 10px;
+    float:left;
+    width: 25%;
+    // box-sizing: border-box;
+}
+
+
+
+
+.place-info h5{
+  padding-top: 10px;
+}
+.place-main{
+  position: relative;
+  right:100px;
+  margin:0;
+}
+.place-main h2{
+
+}
+.show-image img{
+  width: 700px;
+  height: 450px;
+}
+
+.place-info img {
+width: 150px;
+height: auto;
+}
+.place-info p{
+  font-size:14px;
+}
+// .image{
+// position: relative;
+// right:150px;
+// }
+// .place-details{
+//   // position:relative;
+//   // left:150px;
+//   // bottom:250px;
+//   font-size: 20px;
+// }
+h4{  text-align: center;}
+
+// .navigation {
+//     padding: 0.5em 1em;
+//     margin-left: 200px;
+//     font-weight: bold;
+//     border: solid 3px #000000;
+// }
+// .navigation p {
+//     margin: 0;
+//     padding: 0;
+// }
+.navigation{
+    display: flex;
+    position: relative;
+    bottom:50px;
+    justify-content: flex-end;
+}
+
+nav {
+margin-right: 5%;
+}
+h2{  text-align: center;}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 50px;
+  background-color: #000;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+}
+
+footer p {
+  color:white;
+}
+
+// .search-form{
+//   background-color: beige;
+//      height: 130px;
+//      margin:  0 auto;
+//      text-align: center;
+//
+//  }
